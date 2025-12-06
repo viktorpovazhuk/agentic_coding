@@ -1,0 +1,11 @@
+I generated fine-tuning dataset for REC task. To this end, I firstly annotated a few bounding boxes per image. And then generated prompts for objects in bounding boxes using GPT-5 API. Now, I want to make process of fixing generated prompts easier. To this end, create a small GUI programm that loads one at a time an image with overlaid bouding box (called "crop_with_box_fn" in JSONL file with annotations), image cropped by bounding box (called "box_crop_fn") and generated phrase for this bbox (called "phrase"). GUI field with phrase should be editable. Once annotator finishes editing the phrase, he presses "Enter" on the keyboard. Then phrase is updated in the original file with annotations. And new pack of data is loaded in the app.
+It should be possible to specify path to images folder (e.g. "data/prompts_gen/images") and annotations file (e.g. "data/prompts_gen/prompts.jsonl").
+Read corresponding csv and json files to generate code that handles these files properly.
+Generate "requirements.txt" with libraries (and their versions if necessary) required to run this GUI programm.
+
+---
+
+I generated fine-tuning dataset for REC task. To this end, I firstly annotated a few bounding boxes per image. And then generated prompts for objects in bounding boxes using GPT-5 API. Now, I want to make process of fixing generated prompts easier.
+To this end, write a python script that will convert each region from JSONL file (e.g. "/datasets2/datasets/aeroscapes/Processed/prompts_gen/prompts.jsonl") with regions into into a row in pandas dataframe. Dataframe should have columns: filename, region_num, box_image_fn, phrase. Then dataframe should be saved in specified CSV file (e.g. "data/prompts_gen/prompts.csv").
+Also, this script should merge image with overlaid bouding box (called "crop_with_box_fn" in JSONL file with annotations), image cropped by bounding box (called "box_crop_fn") for each region. Obtained result to be saved in specified folder (e.g. data/prompts_gen/box_image) with a name "{filename}_{region_num}.jpg". This name should be specified in "box_image_fn" column for corresponding region in pandas dataframe.
+Read corresponding csv and json files to generate code that handles these files properly.

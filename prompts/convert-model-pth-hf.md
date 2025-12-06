@@ -1,0 +1,2 @@
+Convert Grounding DINO model "output/exp6/checkpoint_best_regular.pth" from PyTorch into Huggingface format and save it into "output/exp6/converted" folder. Validate converted model my loading it as in the script @eval/grounding_dino_wrapper.py.
+You can use conda environment "uav-ovd", but don't install new packages in it.

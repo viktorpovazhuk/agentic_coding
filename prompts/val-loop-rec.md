@@ -1,0 +1,7 @@
+Rewrite validation loop in @engine.py (that is called "eval") for Refference Expression Comprehension (a.k.a. REC) task.
+You will need to change dataset and steps that are done inside the validation loop.
+The dataset should be identical to train dataset. However, it should parse input ODVG dataset in such way that each annotated "region" become a separate sample. It is necessary to simplify the validation process.
+In the validation loop you should firstly run inference using model. Then calculate the validation loss for output and log it, in the same way as train loss. Then postprocess output. For each sample in the batch find its positive map which should cover the whole phrase without dot at the end; using positive map, find prediction with highest confidence and its box. Return box coordinates to the original image sizes. Then computer IoU between predicted and GT box. Save found bbox, original bbox and calculated IoU for this sample.
+After done for all samples, compute REC Accuracy @ 0.5 IoU and REC Accuracy @ 0.7 IoU. Log them.
+Return REC Accuracy @ 0.5 IoU and REC Accuracy @ 0.7 from the validation loop.
+Update best checkpoint based on REC Accuracy @ 0.5 IoU. And in general use these 2 metrics instead of previously used mAP.

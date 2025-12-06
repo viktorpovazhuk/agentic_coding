@@ -1,0 +1,6 @@
+Create a script fixed_prompts2odvg.py in data folder that will load specified CSV with fixed prompts (e.g. "/datasets2/datasets/aeroscapes/Processed/fixed_prompts.csv"), and ODVG dataset in JSONL format (e.g. "/datasets2/datasets/aeroscapes/Processed/prompts_gen/prompts.jsonl") and combine them in JSONL file containing regions with boxes (from ODVG dataset) and prompts (from CSV with prompts) for specified samples (from CSV with prompts).
+Image filename is specified in first column "filename". Region index, among all regions for specific sample in input JSONL, is specified in columnn "region_num". Fixed phrase for the region is in column "phrase".
+There are multiple rows for one image in CSV file. They should be collected into one sample in output file. Each region in output file need to have bbox. Bbox can be found as bbox of the region for the corresponding sample in the input JSONL file. Region index, among all regions for specific sample in input JSONL, is specified in columnn "region_num".
+If there is no prompt for the region in CSV file, then this region shouldn't be added in output file.
+Output JSONL file structure should the same as for input JSONL file.
+Read corresponding data files and to handle them properly while generating code.

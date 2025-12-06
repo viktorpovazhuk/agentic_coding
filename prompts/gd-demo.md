@@ -1,0 +1,1 @@
+Write a simple gradio app that will predict using Grounding DINO. Inputs will be user prompt, token positive spans and image. Output should be image with overlaid bbox. Original checkpoint and original codebase should be used, not huggingface. Image input should be resized staticly to (544, 960).

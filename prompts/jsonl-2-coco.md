@@ -1,0 +1,3 @@
+Write a script in data folder to convert ODVG format annotations (e.g. /datasets2/datasets/aeroscapes/Processed/corrected_prompts_val.jsonl) into COCO format annotations (e.g. /datasets2/datasets/aeroscapes/Processed/corrected_prompts_val_coco.json).
+Output file should follow default structure of COCO annotations file. There must be only 1 category, named "object", and no other categories / super-categories. Each annotation should include default fields information for which can be extracted right from the JSONL file. In addition, each annotation should include field "caption" with info, extracted from corresponding region in OVDG dataset.
+Read corresponding data files to generate code that handles these files properly.
