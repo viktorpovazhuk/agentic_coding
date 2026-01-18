@@ -1,0 +1,1 @@
+Change @model_repository_tmp triton model repository to start only grounding dino model on triton server. Preprocessing and postprocessing will be done outside the triton server. So, remove them from model repository. Maybe, repository itself can be simplified.

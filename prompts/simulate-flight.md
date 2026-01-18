@@ -69,3 +69,24 @@ Actual detection steps:
 10. Among filtered objects Y find one - closest to the numbers of house X
     
     Use 3D map to calculate distance between each pair of house numbers and object Y
+
+==================
+
+Fix communication with YOLO house number detector in @algo/simulation_flight.py 
+There is a description of API:
+# Health check
+curl http://localhost:8085/health
+
+# Detect
+curl -X POST http://localhost:8085/detect --data-binary @images/sample_000002.jpg -H "Content-Type: application/octet-stream"
+Response:
+{
+  "detections": [
+    {"box": [120, 80, 200, 140], "score": 0.92, "class": "number", "detected_number": "42"}
+  ],
+  "plate_detection_inference_time_ms": 12.5,
+  "numbers_extraction_inference_time_ms": 8.3,
+  "num_detections": 1
+}
+
+==================
